@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /binh-luan/*.html
+Disallow: /dang-nhap/*.html
+Sitemap: https://luathoanganh.vn/sitemap.xml

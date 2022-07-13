@@ -1,0 +1,50 @@
+#popup_container {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	min-width: 330px;
+	max-width: 600px;
+	background: #FFF;
+	border: solid 1px #bcbcbc;
+	color: #000;
+    border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+        box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
+#popup_title {
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 3em;
+	color: #f0ffff;
+	background: #337ab7;
+	border-bottom: solid 1px #999;
+	cursor: default;
+	padding: 0;
+	margin: 0;
+}
+#popup_content {
+	background: 16px 16px no-repeat url('../images/jalert/info.png');
+	padding: 1em 1.75em;
+	margin: 0;
+}
+#popup_content.alert {
+	background-image: url('../images/jalert/info.png');
+}
+#popup_content.confirm {
+	background-image: url('../images/jalert/important.gif');
+}
+#popup_content.prompt {
+	background-image: url('../images/jalert/help.png');
+}
+#popup_message {
+	padding-left: 65px;
+    color: #000000;
+}
+#popup_panel {
+	text-align: right;
+	margin: 1em 0 0 1em;
+}
+#popup_prompt {
+    margin: .5em 0;
+}

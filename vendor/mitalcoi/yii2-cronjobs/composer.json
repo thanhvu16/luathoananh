@@ -1,0 +1,21 @@
+{
+    "name": "mitalcoi/yii2-cronjobs",
+    "description": "Simple and convenient installing console commands as cron jobs for Yii framework",
+    "type": "yii2-extension",
+    "keywords": ["yii", "cron", "crontab", "schedule"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Sorokin Victor",
+            "email": "st-agrail@yandex.ru"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "mitalcoi\\cronjobs\\": ""
+        }
+    }
+}

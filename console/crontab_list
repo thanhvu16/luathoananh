@@ -1,0 +1,93 @@
+### delete old log
+15 23 * * *  find /var/www/vegaprojects/app/runtime/ -type f -mtime +15 -exec rm -f {} \;
+## solr import
+0 * * * * wget http://localhost:8986/solr/vclip/dataimport?command=full-import&indent=true&ws=false
+# chuan bi du lieu gia han chay 1 lan dau ngay
+#59 23 * * * mysql -uvlive -pvlive123312 -h192.168.241.88 < /var/www/vegaprojects/app/vclip2.0/console/migrate/migrage_tran_20151023.sql
+15 0,10,15 * * * /var/www/vegaprojects/app/vclip2.0/console/yii script/prepare
+### service cancel expired_time > 35 days
+14 8-23 * * * /var/www/vegaprojects/app/vclip2.0/console/yii script/cancel 1000
+# gia han
+*/29 3-13 * * * sh /var/www/vegaprojects/app/vclip2.0/console/controllers/monfee_extend.sh 0
+*/30 3-13 * * * sh /var/www/vegaprojects/app/vclip2.0/console/controllers/monfee_extend.sh 1
+*/31 3-13 * * * sh /var/www/vegaprojects/app/vclip2.0/console/controllers/monfee_extend.sh 2
+*/32 3-13 * * * sh /var/www/vegaprojects/app/vclip2.0/console/controllers/monfee_extend.sh 3
+*/33 3-13 * * * sh /var/www/vegaprojects/app/vclip2.0/console/controllers/monfee_extend.sh 4
+*/34 3-13 * * * sh /var/www/vegaprojects/app/vclip2.0/console/controllers/monfee_extend.sh 5
+*/35 3-13 * * * sh /var/www/vegaprojects/app/vclip2.0/console/controllers/monfee_extend.sh 6
+*/36 3-13 * * * sh /var/www/vegaprojects/app/vclip2.0/console/controllers/monfee_extend.sh 7
+## truy thu
+*/29 1-23 * * * sh /var/www/vegaprojects/app/vclip2.0/console/controllers/monfee_retry_extend.sh 0
+*/30 1-23 * * * sh /var/www/vegaprojects/app/vclip2.0/console/controllers/monfee_retry_extend.sh 1
+*/31 1-23 * * * sh /var/www/vegaprojects/app/vclip2.0/console/controllers/monfee_retry_extend.sh 2
+*/32 1-23 * * * sh /var/www/vegaprojects/app/vclip2.0/console/controllers/monfee_retry_extend.sh 3
+*/33 1-23 * * * sh /var/www/vegaprojects/app/vclip2.0/console/controllers/monfee_retry_extend.sh 4
+*/34 1-23 * * * sh /var/www/vegaprojects/app/vclip2.0/console/controllers/monfee_retry_extend.sh 5
+*/35 1-23 * * * sh /var/www/vegaprojects/app/vclip2.0/console/controllers/monfee_retry_extend.sh 6
+*/36 1-23 * * * sh /var/www/vegaprojects/app/vclip2.0/console/controllers/monfee_retry_extend.sh 7
+
+#DOWNLOAD FILM
+#*/55 * * * * /var/www/vegaprojects/app/vclip2.0/console/yii  sync/downloader-film
+#*/55 * * * * /var/www/vegaprojects/app/vclip2.0/console/yii  sync/sync-film
+#*/55 * * * * /var/www/vegaprojects/app/vclip2.0/console/yii  sync/sync
+
+### VCLIP 2.0 DAILY REPORT
+12 1 * * * /var/www/vegaprojects/app/vclip2.0/console/yii  category-stats-daily/category-stats
+14 1 * * * /var/www/vegaprojects/app/vclip2.0/console/yii  daily-report/adv-stats
+15 1 * * * /var/www/vegaprojects/app/vclip2.0/console/yii  daily-report/cross-check-stats
+17 1 * * * /var/www/vegaprojects/app/vclip2.0/console/yii  daily-report/hour-stats
+19 1 * * * /var/www/vegaprojects/app/vclip2.0/console/yii  daily-report/package-stats
+22 1 * * * /var/www/vegaprojects/app/vclip2.0/console/yii  daily-report/revenue-stats
+12 1 * * * /var/www/vegaprojects/app/vclip2.0/console/yii  video-stats-daily/video-stats
+12 1 * * * /var/www/vegaprojects/app/vclip2.0/console/yii  daily-report/daily-report-transaction
+12 1 * * * /var/www/vegaprojects/app/vclip2.0/console/yii  daily-report/vas-subscribe
+
+### UPdate Report center
+12 2 * * * /var/www/vegaprojects/app/vclip2.0/console/yii  update-report-center/report-center
+## report user daily
+12 2 * * * /var/www/vegaprojects/app/vclip2.0/console/yii  daily-report/user-day-month-stats 1
+
+## report user monthly
+30 2 1 * *  /var/www/vegaprojects/app/vclip2.0/console/yii  daily-report/user-day-month-stats 2
+
+# push nofification
+*/5 * * * * /var/www/vegaprojects/app/vclip2.0/console/yii  notification-client/notification WINDOWSPHONE
+*/5 * * * * /var/www/vegaprojects/app/vclip2.0/console/yii  notification-client/notification ANDROID
+*/5 * * * * /var/www/vegaprojects/app/vclip2.0/console/yii  notification-client/notification IOS
+
+# SEND SMS
+*/10 * * * * /var/www/vegaprojects/app/vclip2.0/console/yii send-sms
+
+# PROMOTION
+# 0 10 * * 1 /var/www/vegaprojects/app/vclip2.0/console/yii promotion/get-point
+# 0 6 21 11 * /var/www/vegaprojects/app/vclip2.0/console/yii promotion/get-point 9
+# 30 19 * * 6 /var/www/vegaprojects/app/vclip2.0/console/yii promotion/notice
+
+# send mail report
+0 8 * * * /var/www/vegaprojects/app/vclip2.0/console/yii mail/send-mail
+
+# topup
+*/5 * * * * /var/www/vegaprojects/app/vclip2.0/console/yii topup-request
+*/10 * * * * /var/www/vegaprojects/app/vclip2.0/console/yii topup-request/send-request
+*/6 * * * * /var/www/vegaprojects/app/vclip2.0/console/yii topup-request/get-list-success
+
+# SYNS TIME #
+*/5 * * * * /usr/sbin/ntpdate -u vn.pool.ntp.org
+## remove log ##
+0 0 * * 6 /bin/cat /dev/null > /usr/local/apache2-ver2/logs/vclip-video-web-access.log
+#Solr
+#*/60 * * * * sh /etc/init.d/check_solr.sh
+#*/30 * * * * wget http://localhost:8983/solr/dataimport?command=full-import
+*/31 * * * *  rm -rf dataimport?command*
+## CHECK SYSLOG-NG MYSQL ##
+*/10 * * * * /bin/sh /opt/syslog-ng/etc/check-syslog-ng-dw.sh
+*/10 * * * * /bin/sh /opt/syslog-ng/etc/check-syslog-ng-lity.sh
+# BACKUP STORAGE #
+#0 23 * * 1,3,5 /bin/sh /usr/local/sbin/bk_storage.sh
+10 * * * * /usr/local/php5-ver2/bin/php /var/www/vegaprojects/app/vclip2.0/console/yii.php  convert-img/index >> /tmp/sync.txt
+#### SYNC CLIP,FILM  FROM CMC
+10 0 * * * rm -rf /var/www/vegaprojects/app/runtime/logs/film/payload/*
+11 0 * * * rm -rf /var/www/vegaprojects/app/runtime/logs/datachecker/payload/*
+#*/55 * * * * /var/www/vegaprojects/app/vclip2.0/console/yii  sync/downloader-film
+*/15 * * * * /var/www/vegaprojects/app/vclip2.0/console/yii  sync/sync-film
+*/10 * * * * /var/www/vegaprojects/app/vclip2.0/console/yii  sync/sync

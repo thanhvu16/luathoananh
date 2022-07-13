@@ -1,0 +1,12 @@
+# assets cache folder
+common/config/db.php
+# IDE folder
+.idea/
+#composer.lock
+composer.lock
+#index
+wap/www/assets/
+wap/widgets/views/mobile/export/
+wap/widgets/views/pc/export/
+cms/www/assets/
+/nbproject/

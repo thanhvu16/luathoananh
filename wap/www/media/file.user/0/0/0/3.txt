@@ -1,0 +1,4 @@
+Phương án 1: Build hệ thống chịu tải 10k CCU =  2.5Mbps x 10K = 25Gpbs 
+=> Tiền cho server + băng thông ~ 150 triệu / tháng
+
+Phương án 2: CDN với 1 tháng 4 trận 10k CCU ~ 90 triệu

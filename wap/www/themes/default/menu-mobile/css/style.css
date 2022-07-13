@@ -1,0 +1,25 @@
+@media (max-width: 780px){
+	.wsmenu-list
+	{
+		width: 100%;
+	}
+	.wsmenu-submenu li a
+	{
+		margin: 0px;
+	}
+	.wsmenu-submenu
+	{
+		width: 100%;
+	}
+	.header-logo-right
+	{
+		font-size: 0.9em;
+	}
+	.header-logo-right div {
+		padding: 10px 15px;
+	}
+	.bg-footer .bg-footer-sub
+	{
+		position: relative;
+	}
+}
